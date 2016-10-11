@@ -10,9 +10,8 @@ public class Player extends Character {
 
     private float       moveSpeed = 5f;
 
-    public Player(Vector2 pos, String tag, int width, int height, World world) {
-        super(pos, tag, width, height, world);
-        //body = buildBox(true, true);
+    public Player(Vector2 pos, String tag, String name, int width, int height, World world) {
+        super(pos, tag, name, width, height, world);
     }
 
     private void handleInput()

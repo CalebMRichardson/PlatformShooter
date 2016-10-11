@@ -23,11 +23,15 @@ public class GameObject {
 
     public String           tag;
 
-    public GameObject(Vector2 pos, String tag, int width, int height, World world)
+    public String           name;
+
+    public GameObject(Vector2 pos, String tag, String name, int width, int height, World world)
     {
         this.pos = pos;
 
         this.tag = tag;
+
+        this.name = name;
 
         this.width = width;
 
