@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import gameObjects.Contact;
+import com.grimsatisfactions.platformshooter.StringData;
 import gameObjects.Platform;
 import gameObjects.characters.Enemy;
 import gameObjects.characters.Player;
@@ -34,21 +34,19 @@ public class PlayState extends State {
 
         world = new World(new Vector2(0, -9.8f), false);
 
-        world.setContactListener(new Contact());
-
         b2dr = new Box2DDebugRenderer();
 
-        player = new Player(new Vector2(0, 0), "PLAYER", 32, 32, world);
+        player = new Player(new Vector2(0, 64), StringData.CHARACTER, StringData.PLAYER, 32, 32, world);
 
-        enemy = new Enemy(new Vector2(0, 0), "ENEMY", 32, 32, world);
+        enemy = new Enemy(new Vector2(0, 0), StringData.CHARACTER, StringData.ENEMY, 32, 32, world);
 
         platforms = new ArrayList<Platform>();
 
-        platforms.add(0, new Platform(new Vector2(0, -10), "PLATFORM", 64, 32, world));
+        platforms.add(0, new Platform(new Vector2(0, -10), StringData.PLATFORM, StringData.PLATFORM, 64, 32, world));
 
-        platforms.add(1, new Platform(new Vector2(-100, 50), "PLATFORM", 64, 32, world));
+        platforms.add(1, new Platform(new Vector2(-100, 50), StringData.PLATFORM, StringData.PLATFORM, 64, 32, world));
 
-        platforms.add(2, new Platform(new Vector2(100, 50), "PLATFORM", 64, 32, world));
+        platforms.add(2, new Platform(new Vector2(100, 50), StringData.PLATFORM, StringData.PLATFORM, 64, 32, world));
     }
 
     @Override
@@ -86,7 +84,9 @@ public class PlayState extends State {
     public void dispose()
     {
         b2dr.dispose();
+
         world.dispose();
+
         player.dispose();
     }
 }
